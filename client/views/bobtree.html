@@ -1,0 +1,73 @@
+<template name="bobtree">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>Bobtree <small class="m-l-sm" id="bobtree-name">/EOD/RatesDeriv/NYC/....</small></h5>
+            {{>iboxTools}}
+        </div>
+        <div class="ibox-content">
+            <div id="bobtree">
+                
+            </div>
+        </div>
+    </div>
+    {{>social}} 	
+</template>
+
+<template name="social">
+    {{#if selected}}
+    <div class="social-feed-box">
+        {{#with bobpost}}
+            <div class="social-action pull-right">
+                <span class="pull-right">
+                    <button type="button" class="btn btn-xxs btn-outline btn-primary">
+                    {{followers}} Following
+                    </button>
+                </span>
+            </div>
+            <div class="social-avatar">
+                <a href="" class="pull-left">
+                    <img alt="image" src="img/a1.jpg">
+                </a>
+                <div class="media-body">
+                    <a href="#">
+                        {{name}}
+                    </a>
+                    <small class="text-muted">{{ts}}</small>
+                </div>
+            </div>
+            <div class="social-body">
+                <p>
+                    {{message}} <a href="">read full</a>
+                </p>
+            </div>
+        {{/with}}
+        <div class="social-footer">
+            {{#each replies}}
+            <div class="social-comment">
+                <a href="" class="pull-left">
+                    <img alt="image" src="img/a2.jpg">
+                </a>
+                <div class="media-body">
+                    <a href="#">
+                        {{name}}
+                    </a>
+                    {{message}}
+                    <br/>
+                    <small class="text-muted">{{ts}}</small>
+                </div>
+            </div>
+            {{/each}}
+
+            <div class="social-comment">
+                <a href="" class="pull-left">
+                    <img alt="image" src="img/a3.jpg">
+                </a>
+                <div class="media-body">
+                     <textarea id="reply" class="form-control" placeholder="Write comment..."></textarea>
+                </div>
+            </div>
+
+        </div> 
+    </div>
+    {{/if}}   
+</template>

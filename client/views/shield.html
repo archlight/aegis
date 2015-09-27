@@ -1,0 +1,64 @@
+<template name="shield">
+    {{#each alerts}}
+    <div class="ibox float-e-margins collapsed">   
+        {{>shield_title}}
+        {{>shield_content}}
+    </div> 
+    {{/each}}   
+</template>
+
+<template name="shield_title">
+    <div class="ibox-title {{bgcolor}}">
+        <span>{{region}}</span>
+        <span class="ibox-tools pull-right">
+            <span class="collapse-link">
+                <i class="fa fa-chevron-up"></i>
+            </span>
+        </span>
+        <ul class="list-alerts row">
+            {{#each cnts}}
+                <li class="col-xs-4">
+                    <a class="collapse-link" data-toggle="tab" href="#{{region}}-tab-{{severity}}" aria-expanded="false">{{cnt}}</a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="shield_content">
+    <div class="ibox-content tab-content">
+        {{#each data}}
+            <div id="{{region}}-tab-{{severity}}" class="tab-pane">
+                {{> desklist}}
+            </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="desklist">
+    <ul class="desk-list">
+    {{#each desks}}
+        <li class="desk-item">
+            {{>boblist}}
+        </li>
+    {{/each}}
+    </ul>
+</template>
+
+<template name="boblist">
+    <div>
+        <button type="button" class="btn btn-xxs btn-outline {{btncolor}}">
+        {{desk}}
+        </button>
+    </div>
+    <ul class="bob-list">
+        {{#each bobitems}}
+        <li>
+            <a id="{{jid}}" href="#">{{name}}</a>
+            <span class="pull-right">
+                <span class="label label-primary">10</span>
+            </span>
+        </li>
+        {{/each}}
+    </ul> 
+</template>
